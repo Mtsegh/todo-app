@@ -17,7 +17,8 @@ function create_html(info) {
     }
     return `
     <p id="text-input">
-        <textarea type="text" id="todo-input" placeholder="Add new task..."  value="${info.task}"></textarea>
+        <textarea id="todo-input" placeholder="Add new task...">${info.task}</textarea>
+
         
         </p>
         Start
@@ -62,11 +63,11 @@ export function create(info) {
     const addBtn = document.getElementById("addBtn");
     addBtn.addEventListener("click", () => {
         if (text_input.value.trim() !== "" && info) {
-            let task_id = save_edited_task(trim(text_input), trim(start_time), trim(start_date), trim(end_time), trim(end_date), info.id, info.status);
+            let task_id = save_edited_task(text_input.value, trim(start_time), trim(start_date), trim(end_time), trim(end_date), info.id, info.status);
             Task_detail(task_id);
         }
         else if (text_input.value.trim() !== "" && !info) {
-            let task_id = add_task(trim(text_input), trim(start_time), trim(start_date), trim(end_time), trim(end_date));
+            let task_id = add_task(text_input.value, trim(start_time), trim(start_date), trim(end_time), trim(end_date));
             Task_detail(task_id);
         }
     });
