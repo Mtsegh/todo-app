@@ -1,7 +1,7 @@
 import { app } from "./index.js";
 import { Task_detail } from "./task_detail.js";
-import { add_task, delete_task, edit_task, save_edited_task, Tasks, toggle_status } from "./tasks.js";
-import { render_tasks, todo_list } from "./todo_list.js";
+import { add_task, save_edited_task } from "./tasks.js";
+import { todo_list } from "./todo_list.js";
 let myInfo = {
     id: 1,
     task: "",
@@ -17,7 +17,7 @@ function create_html(info) {
     }
     return `
     <p id="text-input">
-        <input type="text" id="todo-input" placeholder="Add new task..."  value="${info.task}"/>
+        <textarea type="text" id="todo-input" placeholder="Add new task..."  value="${info.task}"></textarea>
         
         </p>
         Start
